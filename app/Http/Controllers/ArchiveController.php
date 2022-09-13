@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Archive;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArchiveController extends Controller
 {
@@ -14,7 +15,10 @@ class ArchiveController extends Controller
      */
     public function index()
     {
-        return view('archive');
+        $archives = Archive::orderByDesc('id')
+            ->get();
+
+        return view('archive', ['archives' => $archives]);
     }
 
     /**
@@ -35,7 +39,31 @@ class ArchiveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Archive;
+
+        // INSERTING PDF
+        $file = $request->file('file');
+        if (!empty($file)) {
+            $file_name = date('ymdhis') . '_' . $request->file('file')->getClientOriginalName();
+            $request->file('file')->storeAs(
+                'pdfArchive',
+                $file_name,
+                'public'
+            );
+        } else {
+            $file_name = null;
+        }
+
+
+        $data->no = $request->no;
+        $data->kategori = $request->kategori;
+        $data->judul = $request->judul;
+        $data->file = $file_name;
+        $data->user_id = \Auth::user()->id;
+
+        $data->save();
+
+        return redirect('/archive');
     }
 
     /**
@@ -80,6 +108,13 @@ class ArchiveController extends Controller
      */
     public function destroy(Archive $archive)
     {
-        //
+        // DELETING IN FILES
+        if (!empty($archive->file)) {
+            Storage::disk('public')->delete('pdfArchive/' . $archive->file);
+        }
+
+        $archive->delete();
+
+        return redirect('/archive');
     }
 }

@@ -6,11 +6,12 @@
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-3">
-                        <img src="" alt="The Promised Desire" srcset="">
+                    <div class="col-md-2">
+                        <img src="{{ asset('/img/Formalme Cropped.jpg')}}"
+                            style="object-fit: cover;width: 150px;height: 150px;" class="rounded-circle" alt="The Promised Desire">
                     </div>
-                    <div class="col-9">
-                        <p>Aplikasi ini dibuat oleh:</p>
+                    <div class="col-md-10">
+                        <p class="mt-4">Aplikasi ini dibuat oleh:</p>
                         <p>Nama : Muhammad Daffa' Athallah Rifqi</p>
                         <p>NIM : 1931710093</p>
                         <p>Tanggal : 13 September 2022</p>

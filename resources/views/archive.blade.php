@@ -37,30 +37,34 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($archives as $item)
                             <tr>
-                                <td>2020/PD3/TU/001</td>
-                                <td>Pengumuman</td>
-                                <td>Judul</td>
-                                <td>2021-06-21 17:23</td>
+                                <td>{{$item->no}}</td>
+                                <td>{{$item->kategori}}</td>
+                                <td>{{$item->judul}}</td>
+                                <td>{{$item->updated_at}}</td>
                                 <td style="white-space: nowrap;">
                                     <div>
                                         <a href="#"
                                             class="bg-red-500 hover:bg-red-700 text-white py-1 px-3 rounded text-base"
-                                            onclick="deleteItem()">Hapus</a>
-                                        <a href="#"
+                                            onclick="deleteItem({{$item->id}})">Hapus</a>
+                                        <a href="{{ asset('/storage/pdfArchive/'.$item->file) }}" target="_blank"
+                                            rel="noopener"
                                             class="bg-yellow-500 hover:bg-yellow-700 text-black py-1 px-3 rounded text-base">Unduh</a>
-                                        <a href="/archive/1"
+                                        <a href="/archive/{{$item->id}}"
                                             class="bg-cyan-500 hover:bg-cyan-700 text-white py-1 px-3 rounded text-base">Lihat
                                             >></a>
                                     </div>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="col-md-12 mt-5">
-                <a href="/archive/create" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Arsipkan
+                <a href="/archive/create"
+                    class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Arsipkan
                     Surat..</a>
             </div>
         </div>
@@ -80,8 +84,12 @@
                 <div class="modal-footer">
                     <button type="button" class="bg-gray-500 hover:bg-gray-700 text-white py-1 px-3 rounded text-base"
                         data-bs-dismiss="modal">Close</button>
-                    <button type="button"
-                        class="bg-red-500 hover:bg-red-700 text-white py-1 px-3 rounded text-base">Iya!</button>
+                    <form id="delete-form" method="post">
+                        @csrf
+                        @method('delete')
+                        <button type="submit"
+                            class="bg-red-500 hover:bg-red-700 text-white py-1 px-3 rounded text-base">Iya!</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -89,7 +97,9 @@
     {{-- MODAL --}}
 
     <script>
-        const deleteItem = () => {
+        const deleteItem = (key) => {
+            //EMBED ID
+            $('#delete-form').attr('action', '/archive/' + key);
             $('#exampleModal').modal('show');
         }
     </script>
