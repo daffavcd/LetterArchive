@@ -7,7 +7,9 @@
                 <p>Catatan:</p>
                 <p class="ms-3">- Gunakan file berformat PDF</p>
             </div>
-            <form action="">
+            <form action="/archive/{{$archive->id}}" method="POST" enctype='multipart/form-data'>
+                @csrf
+                @method('put')
                 <div class="col-md-12 mt-2">
                     <div class="row">
                         <div class="col-md-12 mb-2">
@@ -16,11 +18,10 @@
                                     <font class="font-bold">Nomor Surat</font>
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="hidden" name="id" id="id" value="asd">
                                     <input
                                         class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        type="text" name="no" id="no" placeholder="2022/PD1/TU/001.." value="asd"
-                                        required>
+                                        type="text" name="no" id="no" placeholder="2022/PD1/TU/001.."
+                                        value="{{$archive->no}}" required>
                                 </div>
                             </div>
                         </div>
@@ -34,10 +35,14 @@
                                         class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         name="kategori" id="kategori" required>
                                         <option value="">Pilih Kategori</option>
-                                        <option value="Undangan">Undangan</option>
-                                        <option value="Pengumuman">Pengumuman</option>
-                                        <option value="Nota Dinas">Nota Dinas</option>
-                                        <option value="Pemberitahuan">Pemberitahuan</option>
+                                        <option <?php if($archive->kategori=='Undangan'){echo "selected";} ?>
+                                            value="Undangan">Undangan</option>
+                                        <option <?php if($archive->kategori=='Pengumuman'){echo "selected";} ?>
+                                            value="Pengumuman">Pengumuman</option>
+                                        <option <?php if($archive->kategori=='Nota Dinas'){echo "selected";} ?>
+                                            value="Nota Dinas">Nota Dinas</option>
+                                        <option <?php if($archive->kategori=='Pemberitahuan'){echo "selected";} ?>
+                                            value="Pemberitahuan">Pemberitahuan</option>
                                     </select>
                                 </div>
                             </div>
@@ -51,7 +56,8 @@
                                     <input
                                         class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         type="text" name="judul" id="judul"
-                                        placeholder="Harry Potter and the Prisoner of Azkaban.." value="asd" required>
+                                        placeholder="Harry Potter and the Prisoner of Azkaban.."
+                                        value="{{$archive->judul}}" required>
                                 </div>
                             </div>
                         </div>
@@ -65,7 +71,7 @@
                                         class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         type="file" name="file" id="file"
                                         accept="application/pdf,application/vnd.ms-excel">
-                                    <input type="hidden" value="asd" name="old_file" id="old_file">
+                                    <input type="hidden" name="old_file" id="old_file" value="{{$archive->file}}">
                                 </div>
                             </div>
                         </div>

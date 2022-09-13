@@ -24,6 +24,7 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('/archive', App\Http\Controllers\ArchiveController::class);
     Route::resource('/about', App\Http\Controllers\AboutController::class);
+    Route::post('/archive/search', [App\Http\Controllers\ArchiveController::class, 'search'])->name('search');
 });
 
 require __DIR__ . '/auth.php';

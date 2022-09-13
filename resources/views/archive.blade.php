@@ -7,7 +7,7 @@
                     untuk menampilkan surat.</p>
             </div>
             <div class="col-md-12 mt-4">
-                <form action="">
+                <form id="form-search" onsubmit="searchItem()">
                     <div class="row">
                         <div class="col-md-2 text-right mb-2">
                             <font class="text-xl">Cari Surat :</font>
@@ -15,7 +15,7 @@
                         <div class="col-md-8 mb-2">
                             <input
                                 class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                type="text" placeholder="Search letter ...">
+                                type="text" name="judul" id="judul" placeholder="Search letter ...">
                         </div>
                         <div class="col-md-2 mb-2">
                             <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
@@ -36,7 +36,7 @@
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="table-body">
                             @foreach ($archives as $item)
                             <tr>
                                 <td>{{$item->no}}</td>
@@ -97,6 +97,27 @@
     {{-- MODAL --}}
 
     <script>
+        const searchItem = () => {
+            var formData = {
+                _token: "{{ csrf_token() }}",
+                judul: $("#judul").val(),
+              };
+          
+              $.ajax({
+                type: "POST",
+                url: "/archive/search",
+                data: formData,
+                encode: true,
+              }).done(function (data) {
+                console.log(data);
+                $('#table-body').html(data);
+              }).fail(function(data)  {
+                console.log(data);
+              });
+          
+            event.preventDefault();
+        }
+
         const deleteItem = (key) => {
             //EMBED ID
             $('#delete-form').attr('action', '/archive/' + key);

@@ -3,10 +3,10 @@
         <div class="row bg-white overflow-hidden shadow-sm rounded px-8 mx-auto py-12">
             <div class="col-md-12 mb-4">
                 <h3 style="font-size: 1.75rem!important">Arsip Surat >> Lihat</h3>
-                <p>Nomor : 2020/PD3/TU/001</p>
-                <p>Kategori : Pengumuman</p>
-                <p>Kategori : Nota Dinas WFH</p>
-                <p>Waktu Diunggah : 2021-06-21 17:23</p>
+                <p>Nomor : {{$archive->no}}</p>
+                <p>Kategori : {{$archive->kategori}}</p>
+                <p>Judul : {{$archive->judul}}</p>
+                <p>Waktu Diunggah : {{$archive->updated_at}}</p>
             </div>
             <div class="col-md-12 mt-2">
                 PDF EMBBEDED VIEWER
@@ -18,11 +18,11 @@
                             class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded me-2">
                             {{'<<'}} Kembali
                         </a>
-                        <a href="#"
+                        <a href="{{ asset('/storage/pdfArchive/'.$archive->file) }}" target="_blank" rel="noopener"
                             class="bg-yellow-500 hover:bg-yellow-700 text-black font-bold py-2 px-4 rounded me-2">
                             Unduh
                         </a>
-                        <a href="/archive/1/edit"
+                        <a href="/archive/{{$archive->id}}/edit"
                             class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded me-2">
                             Edit / Ganti File
                         </a>
