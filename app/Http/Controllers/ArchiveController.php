@@ -57,7 +57,7 @@ class ArchiveController extends Controller
      */
     public function edit(Archive $archive)
     {
-        //
+        return view('editArchive');
     }
 
     /**

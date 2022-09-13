@@ -1,11 +1,9 @@
 <x-app-layout>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    Welcome to letter archiver {{ Auth::user()->name }} !
-                </div>
+        <div class="row bg-white overflow-hidden shadow-sm rounded px-8 mx-auto py-12" style="min-height: 427px;">
+            <div class="col-md-12">
+                <h3 style="font-size: 1.75rem!important">Welcome to letter archiver {{ Auth::user()->name }} !</h3>
+                <p>Arsipkan suratmu dengan aman bersamaku yaa!!</p>
             </div>
         </div>
-    </div>
 </x-app-layout>

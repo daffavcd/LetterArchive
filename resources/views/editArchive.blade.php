@@ -2,8 +2,8 @@
     <div class="py-12">
         <div class="row bg-white overflow-hidden shadow-sm rounded px-8 mx-auto py-12">
             <div class="col-md-12 mb-4">
-                <h3 style="font-size: 1.75rem!important">Arsip Surat >> Unggah</h3>
-                <p>Unggah yang telah terbit pada form ini untuk diarsipkan.</p>
+                <h3 style="font-size: 1.75rem!important">Arsip Surat >> Edit</h3>
+                <p>Edit simpanan surat yang telah di diarsipkan.</p>
                 <p>Catatan:</p>
                 <p class="ms-3">- Gunakan file berformat PDF</p>
             </div>
@@ -16,9 +16,11 @@
                                     <font class="font-bold">Nomor Surat</font>
                                 </div>
                                 <div class="col-md-10">
+                                    <input type="hidden" name="id" id="id" value="asd">
                                     <input
                                         class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        type="text" name="no" id="no" placeholder="2022/PD1/TU/001.." required>
+                                        type="text" name="no" id="no" placeholder="2022/PD1/TU/001.." value="asd"
+                                        required>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +51,7 @@
                                     <input
                                         class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         type="text" name="judul" id="judul"
-                                        placeholder="Harry Potter and the Prisoner of Azkaban.." required>
+                                        placeholder="Harry Potter and the Prisoner of Azkaban.." value="asd" required>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +64,8 @@
                                     <input
                                         class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         type="file" name="file" id="file"
-                                        accept="application/pdf,application/vnd.ms-excel" required>
+                                        accept="application/pdf,application/vnd.ms-excel">
+                                    <input type="hidden" value="asd" name="old_file" id="old_file">
                                 </div>
                             </div>
                         </div>
@@ -76,7 +79,7 @@
                                 {{'<<'}} Kembali
                             </a>
                             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded me-2"
-                                type="submit">Simpan
+                                type="submit">Update
                             </button>
                         </div>
                     </div>

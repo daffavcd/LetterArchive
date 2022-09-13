@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('archives', function (Blueprint $table) {
             $table->id();
+            $table->string('no', 255);
+            $table->string('kategori', 255);
+            $table->string('judul', 255);
+            $table->string('file', 255);
+            $table->string('user_id', 255);
             $table->timestamps();
         });
     }
