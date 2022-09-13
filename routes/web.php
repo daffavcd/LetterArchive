@@ -21,4 +21,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+Route::middleware(['auth'])->group(function () {
+    Route::resource('/archive', App\Http\Controllers\ArchiveController::class);
+    Route::resource('/about', App\Http\Controllers\AboutController::class);
+});
+
+require __DIR__ . '/auth.php';
