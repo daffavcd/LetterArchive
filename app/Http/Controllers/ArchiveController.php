@@ -24,7 +24,7 @@ class ArchiveController extends Controller
      */
     public function create()
     {
-        //
+        return view('createArchive');
     }
 
     /**
@@ -46,7 +46,7 @@ class ArchiveController extends Controller
      */
     public function show(Archive $archive)
     {
-        //
+        return view('showArchive');
     }
 
     /**
