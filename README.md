@@ -1,12 +1,12 @@
 # Letter Archiver
 
-## index
+## List
 <img src="/sss/1.PNG" title="Screenshot 1"/>
 
-## create
+## Show
 <img src="/sss/3.PNG" title="Screenshot 2"/>
 
-## show
+## Create
 <img src="/sss/2.PNG" title="Screenshot 3"/>
 
 
