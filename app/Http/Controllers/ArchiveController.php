@@ -106,6 +106,7 @@ class ArchiveController extends Controller
      */
     public function show(Archive $archive)
     {
+
         return view('showArchive', ['archive' => $archive]);
     }
 

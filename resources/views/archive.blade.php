@@ -94,6 +94,25 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="success" tabindex="-1" aria-labelledby="successLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-xl" id="successLabel">Success</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Data berhasil diarsipkan!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="bg-gray-500 hover:bg-gray-700 text-white py-1 px-3 rounded text-base"
+                        data-bs-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
     {{-- MODAL --}}
 
     <script>
@@ -109,7 +128,7 @@
                 data: formData,
                 encode: true,
               }).done(function (data) {
-                console.log(data);
+                // console.log(data);
                 $('#table-body').html(data);
               }).fail(function(data)  {
                 console.log(data);

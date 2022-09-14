@@ -6,4 +6,5 @@
                 <p>Arsipkan suratmu dengan aman bersamaku yaa!!</p>
             </div>
         </div>
+    </div>
 </x-app-layout>

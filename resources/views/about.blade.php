@@ -8,7 +8,8 @@
                 <div class="row">
                     <div class="col-md-2">
                         <img src="{{ asset('/img/Formalme Cropped.jpg')}}"
-                            style="object-fit: cover;width: 150px;height: 150px;" class="rounded-circle" alt="The Promised Desire">
+                            style="object-fit: cover;width: 150px;height: 150px;" class="rounded-circle"
+                            alt="The Promised Desire">
                     </div>
                     <div class="col-md-10">
                         <p class="mt-4">Aplikasi ini dibuat oleh:</p>
@@ -19,4 +20,5 @@
                 </div>
             </div>
         </div>
+    </div>
 </x-app-layout>

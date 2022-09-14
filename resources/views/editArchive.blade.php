@@ -92,5 +92,6 @@
                 </div>
             </form>
         </div>
+    </div>
 
 </x-app-layout>

@@ -1,4 +1,10 @@
 <x-app-layout>
+    <style>
+        .pdfobject-container {
+            height: 30rem;
+            border: 1rem solid rgba(0, 0, 0, .1);
+        }
+    </style>
     <div class="py-12">
         <div class="row bg-white overflow-hidden shadow-sm rounded px-8 mx-auto py-12">
             <div class="col-md-12 mb-4">
@@ -9,7 +15,12 @@
                 <p>Waktu Diunggah : {{$archive->updated_at}}</p>
             </div>
             <div class="col-md-12 mt-2">
-                PDF EMBBEDED VIEWER
+                <div id="example1">
+                    <iframe src='{{  asset('/laraview/#../storage/pdfArchive/' . $archive->file) }}' width="800"
+                        height="678">
+                        <p>This browser does not support PDF!</p>
+                    </iframe>
+                </div>
             </div>
             <div class="col-md-12 mt-4">
                 <div class="row">
@@ -30,4 +41,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js"
+        integrity="sha512-MoP2OErV7Mtk4VL893VYBFq8yJHWQtqJxTyIAsCVKzILrvHyKQpAwJf9noILczN6psvXUxTr19T5h+ndywCoVw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        PDFObject.embed("{{$pathPdf}}", "#example1");
+    </script> --}}
 </x-app-layout>
