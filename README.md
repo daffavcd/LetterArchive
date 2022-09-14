@@ -1,13 +1,13 @@
 # Letter Archiver
 
 ## index
-<img src="/sss/1.png" title="Screenshot 1"/>
+<img src="/sss/1.PNG" title="Screenshot 1"/>
 
 ## create
-<img src="/sss/3.png" title="Screenshot 2"/>
+<img src="/sss/3.PNG" title="Screenshot 2"/>
 
 ## show
-<img src="/sss/2.png" title="Screenshot 3"/>
+<img src="/sss/2.PNG" title="Screenshot 3"/>
 
 
 ## Letter Archiver
